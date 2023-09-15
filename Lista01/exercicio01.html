@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="idNome">Qual é o seu nome?</label>
+        <input type="text" name="nmNome" id="idNome" value="João da Silva">
+    </div>
+
+    <input type="button" value="Pegar Nome" onclick="pegarNome()">
+
+    <div>
+        <label for="idSaida">Saída</label>
+        <input type="text" name="nmSaida" id="idSaida" size="40">
+    </div>
+
+    <script>
+        function pegarNome(){
+            let nome
+            nome = document.getElementById("idNome").value
+
+            document.getElementById("idSaida").value = "Olá, "+ nome + ", é um prazer em te conhecer!"
+        }
+    </script>
+</body>
+</html>
