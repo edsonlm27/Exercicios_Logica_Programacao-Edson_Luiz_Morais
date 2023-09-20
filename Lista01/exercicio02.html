@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista1_Exercício02</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="idNome" class="linha">Nome do Funcionário</label>
+        <input type="text" name="nmNome" id="idNome" class="linha">
+
+        <label for="idSalario" class="linha">Salário</label>
+        <input type="number" name="nmSalario" id="idSalario" class="linha" min="0" step=".01">
+
+        <input type="button" value="Pegar Nome e Salário" class="linha" onclick="pegarNomeSalario()">
+
+        <label for="idSaida" class="linha">Saída</label>
+        <output id="idSaida"></output>
+    </form>
+
+    <script>
+        function pegarNomeSalario() {
+            let nome = document.getElementById("idNome").value
+            let salario = Number(document.getElementById("idSalario").value)
+            document.getElementById("idSaida").value = 
+            "O funcionário " + nome + " tem um salário de R$" + salario +" em Junho."
+        }
+    </script>
+</body>
+</html>

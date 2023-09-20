@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista1_Exercício08</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="idNumero" class="linha">Informe quantos Reais você tem na carteira:</label>
+        <input type="number" name="nmNumero" id="idNumero" class="linha">
+        
+        <input type="button" value="Calcular" onclick="calcular()" class="linha">
+                
+        <output id="idSaida1"></output>
+    </form>
+
+    <script>
+        function calcular() {
+            let numero = Number(document.getElementById("idNumero").value) 
+            let dolar = numero / 3.45
+            document.getElementById("idSaida1").innerText = 
+            "Com esta quantia de R$" + numero.toFixed(2) + " você consegue comprar US$ "+ dolar.toFixed(2) +" "
+        }
+    </script>
+</body>
+</html>

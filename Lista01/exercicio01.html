@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista1_Exercício01</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <label for="idNome">Qual é o seu nome?</label>
-        <input type="text" name="nmNome" id="idNome" value="João da Silva">
-    </div>
+    <form action="">
+        <label for="idNome" class="linha">Qual é o seu nome?</label>
+        <input type="text" name="nmNome" id="idNome" class="linha" value="João da Silva">
+        
+        <input type="button" class="linha" value="Pegar Nome" onclick="pegarNome()">
 
-    <input type="button" value="Pegar Nome" onclick="pegarNome()">
-
-    <div>
-        <label for="idSaida">Saída</label>
-        <input type="text" name="nmSaida" id="idSaida" size="40">
-    </div>
-
+        <label for="idSaida" class="linha">Saída:</label>
+        <input type="text" name="nmSaida" id="idSaida" size="50">
+    </form>
+    
     <script>
         function pegarNome(){
             let nome

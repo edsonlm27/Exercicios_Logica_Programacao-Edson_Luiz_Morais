@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista1_Exercício04</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="idNota1" class="linha">Nota 1:</label>
+        <input type="number" name="nmNota1" id="idNota1" class="linha" min="0" max="10" step="0.01">
+
+        <label for="idNota2" class="linha">Nota 2:</label>
+        <input type="number" name="nmNota2" id="idNota2" class="linha" min="0" max="10" step="0.01">
+
+        <input type="button" value="Calcular a média" class="linha" onclick="calcularMedia()">
+
+        <output id="idSaida"></output>
+    </form>
+
+    <script>
+        function calcularMedia() {
+            let nota1 = Number(document.getElementById("idNota1").value) 
+            let nota2 = Number(document.getElementById("idNota2").value)
+            let media = (nota1 + nota2) / 2
+            document.getElementById("idSaida").innerText = 
+            "A média entre " + nota1 + " e " + nota2 + " é igual a " + media.toFixed(2) + " "
+        }
+    </script>
+</body>
+</html>

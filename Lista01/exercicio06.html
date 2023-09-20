@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista1_Exercício06</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="idNumero" class="linha">Digite um número:</label>
+        <input type="number" name="nmNumero" id="idNumero" class="linha">
+        
+        <input type="button" value="Calcular" class="linha" onclick="calcular()">
+        
+        <output id="idSaida1"></output>
+        <output id="idSaida2"></output>
+    </form>
+
+    <script>
+        function calcular() {
+            let numero = Number(document.getElementById("idNumero").value) 
+            let dobro = numero * 2
+            let tercaParte = numero / 3
+            document.getElementById("idSaida1").innerText = 
+            "O dobro de " + numero + " é " + dobro + "."
+            document.getElementById("idSaida2").innerText = 
+            "A terça parte de " + numero + " é " + tercaParte.toFixed(4) + "."
+        }
+    </script>
+</body>
+</html>

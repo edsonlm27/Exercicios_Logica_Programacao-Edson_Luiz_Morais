@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista1_Exercício07</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="idNumero" class="linha">Digite uma distância em metros:</label>
+        <input type="number" name="nmNumero" id="idNumero" class="linha" min="0" step=".00">
+
+        <input type="button" value="Calcular" class="linha" onclick="calcular()">
+
+        <output id="idSaida" class="linha"></output>
+
+        <output id="idSaida1" class="linha"></output>
+
+        <output id="idSaida2" class="linha"></output>
+
+        <output id="idSaida3" class="linha"></output>
+
+        <output id="idSaida4" class="linha"></output>
+
+        <output id="idSaida5" class="linha"></output>
+
+        <output id="idSaida6" class="linha"></output>
+    </form>
+
+    <script>
+        function calcular() {
+            let numero = Number(document.getElementById("idNumero").value) 
+            let km = numero / 1000
+            let hm = numero / 100
+            let dam = numero / 10
+            let dm = numero * 10
+            let cm = numero * 100
+            let mm = numero * 1000
+            document.getElementById("idSaida").innerText = 
+            "A distância de " + numero + " corresponde a:"
+            document.getElementById("idSaida1").innerText = km + " Km"
+            document.getElementById("idSaida2").innerText = hm + " Hm"
+            document.getElementById("idSaida3").innerText = dam + " Dam"
+            document.getElementById("idSaida4").innerText = dm.toFixed(1) + " dm"
+            document.getElementById("idSaida5").innerText = cm.toFixed(1) + " cm"
+            document.getElementById("idSaida6").innerText = mm.toFixed(1) + " mm"
+        }
+    </script>
+</body>
+</html>

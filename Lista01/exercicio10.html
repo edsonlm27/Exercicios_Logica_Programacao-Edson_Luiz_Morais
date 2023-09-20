@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista1_Exercício10</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="idPreco" class="linha">Digite o preço do produto:</label>
+        <input type="number" name="nmPreco" id="idPreco" class="linha" step=".00">
+
+        <input type="button" value="Calcular Desconto" class="linha" onclick="calcularDesconto()">
+
+        <output id="idSaida1" class="linha"></output>
+        <output id="idSaida2"></output>
+    </form>
+
+    <script>
+        function calcularDesconto() {
+            let preco = Number(document.getElementById("idPreco").value) 
+            let desconto = preco * 0.05
+            let precoPromocional = preco - desconto
+            document.getElementById("idSaida1").innerText = 
+            "O valor do desconto é de R$ " + desconto.toFixed(2) + " "
+            document.getElementById("idSaida2").innerText = 
+            "O valor do preço promocional é R$ " + precoPromocional.toFixed(2) + " "
+        }
+    </script>
+</body>
+</html>

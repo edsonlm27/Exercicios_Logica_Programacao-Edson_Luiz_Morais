@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista1_Exercício05</title>
+    <style>
+        div{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div>
+            <label for="idNumero">Digite um número:</label><br>
+            <input type="number" name="nmNumero" id="idNumero">
+        </div>
+        
+        <div>
+            <input type="button" value="Calcular" onclick="calcular()">
+        </div>
+
+        <div>
+            <output id="idSaida1"></output>
+        </div>
+
+        <div>
+            <output id="idSaida2"></output>
+        </div>
+    </form>
+
+    <script>
+        function calcular() {
+            let numero = Number(document.getElementById("idNumero").value) 
+            let antecessor = numero - 1
+            let sucessor = numero + 1
+            document.getElementById("idSaida1").innerText = 
+            "O antecessor de " + numero + " é " + antecessor + "."
+            document.getElementById("idSaida2").innerText = 
+            "O sucessor de " + numero + " é " + sucessor + "."
+        }
+    </script>
+</body>
+</html>

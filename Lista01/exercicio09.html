@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista1_Exercício09</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="idLargura" class="linha">Digite a largura da parede:</label>
+        <input type="number" name="nmLargura" id="idLargura" class="linha" step=".00">
+
+        <label for="idAltura" class="linha">Digite a altura da parede</label>
+        <input type="number" name="nmAltura" id="idAltura" class="linha" step=".00">
+
+        <input type="button" value="Calcular" class="linha" onclick="calcular()">
+
+        <output id="idSaida1" class="linha"></output>
+        <output id="idSaida2"></output>
+    </form>
+
+    <script>
+        function calcular() {
+            let largura = Number(document.getElementById("idLargura").value) 
+            let altura = Number(document.getElementById("idAltura").value)
+            let area = largura * altura
+            let qtTinta = area / 2
+            document.getElementById("idSaida1").innerText = 
+            "A área a ser pintada é de " + area.toFixed(2) + " metros quadrados."
+            document.getElementById("idSaida2").innerText = 
+            "A quantidade de tinta necessária para o serviço é de " + qtTinta.toFixed(2) + " litros."
+        }
+    </script>
+</body>
+</html>
