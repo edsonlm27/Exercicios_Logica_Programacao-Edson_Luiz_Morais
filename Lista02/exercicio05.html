@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista2_Exercício02</title>
+    <title>Lista2_Exercício05</title>
     <style>
         .linha{
             display: block;
@@ -35,19 +35,26 @@
             if (num1 == num2 || num1 == num3 || num2 == num3) {
                 alert("Existem números iguais, por favor digite três números diferentes!")
                 document.getElementById("idNum1").focus()
+            } else if (num1 > num2 && num1 > num3 && num2 > num3) {
+                document.getElementById("idSaida").value = "A ordem dos números é " + num1 + ",  " + num2 + ", " + num3 + "."
+            
+            } else if (num1 > num2 && num1 > num3 && num3 > num2) {
+                document.getElementById("idSaida").value = "A ordem dos números é " + num1 + ",  " + num3 + ", " + num2 + "."
+            
+            } else if (num2 > num1 && num2 > num3 && num1 > num3) {
+                document.getElementById("idSaida").value = "A ordem dos números é " + num2 + ",  " + num1 + ", " + num3 + "."
+            
+            } else if (num2 > num1 && num2 > num3 && num3 > num1) {
+                document.getElementById("idSaida").value = "A ordem dos números é " + num2 + ",  " + num3 + ", " + num1 + "."
+             
+            } else if (num3 > num1 && num3 > num2 && num1 > num2) {
+                document.getElementById("idSaida").value = "A ordem dos números é " + num3 + ",  " + num1 + ", " + num2 + "."
+             
             } else {
-                if (num1 > num2 && num1 > num3) {
-                    document.getElementById("idSaida").value = "O número " + num1 + " é o maior."
-                } else { 
-                    if (num2 > num1 && num2 > num3) {
-                        document.getElementById("idSaida").value = "O número " + num2 + " é o maior."
-                        } else {
-                            document.getElementById("idSaida").value = "O número " + num3 + " é o maior."
-                }
-                    
-                }
+                document.getElementById("idSaida").value = "A ordem dos números é " + num3 + ",  " + num2 + ", " + num1 + "."
             }
         }
+
     </script>
 </body>
 </html>
