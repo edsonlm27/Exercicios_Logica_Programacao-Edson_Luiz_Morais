@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista2_Exercício01v2</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="idNum1" class="linha">Entre com o primeiro número:</label>
+        <input type="number" name="nmNum1" id="idNum1" class="linha">
+
+        <label for="idNum2" class="linha">Entre com o segundo número (diferente do primeiro):</label>
+        <input type="number" name="nmNum2" id="idNum2" class="linha">
+
+        <input type="button" value="Verificar o maior" class="linha" onclick="verificarMaior()">
+
+        <output id="idSaida"></output>
+    </form>
+
+    <script>
+        function verificarMaior() {
+            num1 = Number(document.getElementById("idNum1").value)
+            num2 = Number(document.getElementById("idNum2").value)
+            if (num1 == num2) {
+                alert("Os números são iguais, por favor digite números diferentes!")
+                document.getElementById("idNum1").focus()
+            } else {
+                if (num1 > num2) {
+                    document.getElementById("idSaida").value = "O número " + num1 + " é o maior."
+                } else {
+                    document.getElementById("idSaida").value = "O número " + num2 + " é o maior."
+                }
+            }
+        }
+    </script>
+</body>
+</html>

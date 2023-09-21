@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista2_Exercício04</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="idNum1" class="linha">Entre com um número:</label>
+        <input type="number" name="nmNum1" id="idNum1" class="linha">
+
+        <input type="button" value="Verificar o número" class="linha" onclick="verificarNumero()">
+
+        <output id="idSaida"></output>
+    </form>
+
+    <script>
+        function verificarNumero() {
+            num1 = Number(document.getElementById("idNum1").value)
+            if (num1 >= 30 && num1 <= 90) {
+                document.getElementById("idSaida").value = "O número " + num1 + " está entre 30 e 90, inclusive."
+            } else {
+                    document.getElementById("idSaida").value = "O número " + num1 + " não está entre 30 e 90."
+                }
+        }
+    </script>
+</body>
+</html>

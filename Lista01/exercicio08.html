@@ -13,8 +13,8 @@
 </head>
 <body>
     <form action="">
-        <label for="idNumero" class="linha">Informe quantos Reais você tem na carteira:</label>
-        <input type="number" name="nmNumero" id="idNumero" class="linha">
+        <label for="idReal" class="linha">Informe quantos Reais você tem na carteira:</label>
+        <input type="number" name="nmReal" id="idReal" class="linha">
         
         <input type="button" value="Calcular" onclick="calcular()" class="linha">
                 
@@ -23,7 +23,7 @@
 
     <script>
         function calcular() {
-            let numero = Number(document.getElementById("idNumero").value) 
+            let numero = Number(document.getElementById("idReal").value) 
             let dolar = numero / 3.45
             document.getElementById("idSaida1").innerText = 
             "Com esta quantia de R$" + numero.toFixed(2) + " você consegue comprar US$ "+ dolar.toFixed(2) +" "

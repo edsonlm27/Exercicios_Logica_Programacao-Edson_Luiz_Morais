@@ -19,18 +19,12 @@
         <input type="button" value="Calcular" class="linha" onclick="calcular()">
 
         <output id="idSaida" class="linha"></output>
-
-        <output id="idSaida1" class="linha"></output>
-
-        <output id="idSaida2" class="linha"></output>
-
-        <output id="idSaida3" class="linha"></output>
-
-        <output id="idSaida4" class="linha"></output>
-
-        <output id="idSaida5" class="linha"></output>
-
-        <output id="idSaida6" class="linha"></output>
+        <output id="idSaidaKm" class="linha"></output>
+        <output id="idSaidaHm" class="linha"></output>
+        <output id="idSaidaDam" class="linha"></output>
+        <output id="idSaidaDm" class="linha"></output>
+        <output id="idSaidaCm" class="linha"></output>
+        <output id="idSaidaMm" class="linha"></output>
     </form>
 
     <script>
@@ -43,13 +37,13 @@
             let cm = numero * 100
             let mm = numero * 1000
             document.getElementById("idSaida").innerText = 
-            "A distância de " + numero + " corresponde a:"
-            document.getElementById("idSaida1").innerText = km + " Km"
-            document.getElementById("idSaida2").innerText = hm + " Hm"
-            document.getElementById("idSaida3").innerText = dam + " Dam"
-            document.getElementById("idSaida4").innerText = dm.toFixed(1) + " dm"
-            document.getElementById("idSaida5").innerText = cm.toFixed(1) + " cm"
-            document.getElementById("idSaida6").innerText = mm.toFixed(1) + " mm"
+            "A distância de " + numero + "m corresponde a:"
+            document.getElementById("idSaidaKm").innerText = km + " Km"
+            document.getElementById("idSaidaHm").innerText = hm + " Hm"
+            document.getElementById("idSaidaDam").innerText = dam + " Dam"
+            document.getElementById("idSaidaDm").innerText = dm.toFixed(1) + " dm"
+            document.getElementById("idSaidaCm").innerText = cm.toFixed(1) + " cm"
+            document.getElementById("idSaidaMm").innerText = mm.toFixed(1) + " mm"
         }
     </script>
 </body>
