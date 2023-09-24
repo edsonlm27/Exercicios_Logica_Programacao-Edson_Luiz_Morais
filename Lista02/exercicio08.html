@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista2_Exercício08</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="idValorProd" class="linha">Entre com o valor do produto:</label>
+        <input type="number" name="nmValorProd" id="idValorProd" class="linha" min="0" step=".01">
+
+        <input type="button" value="Ver o valor de venda" class="linha" onclick="verificarValorVenda()">
+
+        <output id="idSaida"></output>
+    </form>
+
+    <script>
+        function verificarValorVenda() {
+            let valorProd = Number(document.getElementById("idValorProd").value)
+            let valorVenda
+
+            if (valorProd < 20.00) {
+                valorVenda = valorProd*1.5
+            } else {
+                valorVenda = valorProd*1.35
+            }
+            
+            document.getElementById("idSaida").value = "O valor de venda é R$ "+ valorVenda.toFixed(2) + "."
+        }
+    </script>
+</body>
+</html>

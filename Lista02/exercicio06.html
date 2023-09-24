@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista2_Exercício06</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="idNum1" class="linha">Entre com o primeiro número:</label>
+        <input type="number" name="nmNum1" id="idNum1" class="linha">
+
+        <label for="idNum2" class="linha">Entre com o segundo número:</label>
+        <input type="number" name="nmNum2" id="idNum2" class="linha">
+        
+        <input type="radio" name="nmOperacao" id="idSoma" onclick="somar()" checked>
+        <label for="idSoma">Soma</label><br>
+
+        <input type="radio" name="nmOperacao" id="idSubtracao" onclick="subtrair()">
+        <label for="idSubtracao">Subtração</label><br>
+
+        <input type="radio" name="nmOperacao" id="idMultiplicacao" onclick="multiplicar()">
+        <label for="idMultiplicacao">Multiplicacão</label><br>
+
+        <input type="radio" name="nmOperacao" id="idDivisao" onclick="dividir()">
+        <label for="idDivisao">Divisão</label><br><br>
+
+        <output id="idSaida"></output>
+    </form>
+
+    <script>
+        function somar() {
+            let num1 = Number(document.getElementById("idNum1").value)
+            let num2 = Number(document.getElementById("idNum2").value)
+            let resultado = num1 + num2
+
+            document.getElementById("idSaida").value = "O resultado é "+ resultado +". "
+        }
+
+        function subtrair() {
+            let num1 = Number(document.getElementById("idNum1").value)
+            let num2 = Number(document.getElementById("idNum2").value)
+            let resultado = num1 - num2
+
+            document.getElementById("idSaida").value = "O resultado é "+ resultado +". "
+        }
+
+        function multiplicar() {
+            let num1 = Number(document.getElementById("idNum1").value)
+            let num2 = Number(document.getElementById("idNum2").value)
+            let resultado = num1 * num2
+
+            document.getElementById("idSaida").value = "O resultado é "+ resultado +". "
+        }
+
+        function dividir() {
+            let num1 = Number(document.getElementById("idNum1").value)
+            let num2 = Number(document.getElementById("idNum2").value)
+            let resultado
+
+            if (num2 == 0) {
+                alert("Não é possível efetuar a divisão de um número por zero!!")
+                document.getElementById("idNum2").focus()
+            } else {
+                resultado = num1 / num2
+            }
+            document.getElementById("idSaida").value = "O resultado é "+ resultado +". "
+        }
+
+    </script>
+</body>
+</html>

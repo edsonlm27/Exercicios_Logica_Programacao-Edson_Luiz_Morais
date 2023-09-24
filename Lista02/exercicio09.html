@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista2_Exercício09</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 7px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>Círculo</legend>
+            <label for="idRaio" class="linha">Raio</label>
+            <input type="number" name="nmRaio" id="idRaio" step=".01" class="linha">
+            
+            <input type="button" value="Calcular a Área do Círculo" onclick="calcularAreaCirculo()" class="linha">
+            <output id="idSaidaCirc"></output>
+        </fieldset><br>
+        
+        <fieldset>
+            <legend>Retângulo</legend>
+            <label for="idBaseRt" class="linha">Base</label>
+            <input type="number" name="nmBaseRt" id="idBaseRt" step=".01" class="linha">
+            <label for="idAlturaRt" class="linha">Altura</label>
+            <input type="number" name="nmAlturaRt" id="idAlturaRt" step=".01" class="linha">
+            
+            <input type="button" value="Calcular a Área do Retângulo" onclick="calcularAreaRetangulo()" class="linha">
+            <output id="idSaidaRet"></output>
+        </fieldset><br>
+        
+        <fieldset>
+            <legend>Triângulo Retângulo</legend>
+            <label for="idBaseTr" class="linha">Base</label>
+            <input type="number" name="nmBaseTr" id="idBaseTr" step=".01" class="linha">
+            <label for="idAlturaTr" class="linha">Altura</label>
+            <input type="number" name="nmAlturaTr" id="idAlturaTr" step=".01" class="linha">
+
+            <input type="button" value="Calcular a Área do Triângulo Retângulo" onclick="calcularAreaTrianguloRetangulo()" class="linha">
+            <output id="idSaidaTriangRet"></output>
+        </fieldset>
+
+        <fieldset>
+            <legend>Triângulo Equilátero</legend>
+            <label for="idLado" class="linha">Lado</label>
+            <input type="number" name="nmLado" id="idLado" step=".01" class="linha">
+
+            <input type="button" value="Calcular a Área do Triângulo Equilátero" onclick="calcularAreaTrianguloEquilatero()" class="linha">
+            <output id="idSaidaTriangEq"></output>
+        </fieldset>
+    </form>
+    
+    <script>
+        function calcularAreaCirculo() {
+            let raio = Number(document.getElementById("idRaio").value)
+            
+            let area = Math.PI * (raio ** 2)
+
+            document.getElementById("idSaidaCirc").value = "O valor da área do círculo é "+ area.toFixed(2) + " cm2"
+        }
+
+        function calcularAreaRetangulo() {
+            let base = Number(document.getElementById("idBaseRt").value)
+            let altura = Number(document.getElementById("idAlturaRt").value)
+
+            let area = base * altura
+
+            document.getElementById("idSaidaRet").value =  "O valor da área do retângulo é "+ area.toFixed(2) + " cm2"
+        }
+
+        function calcularAreaTrianguloRetangulo() {
+            let base = Number(document.getElementById("idBaseTr").value)
+            let altura = Number(document.getElementById("idAlturaTr").value)
+
+            let area = (base * altura) / 2
+
+            document.getElementById("idSaidaTriangRet").value =  "O valor da área do triângulo retângulo é "+ area.toFixed(2) + " cm2"
+        }
+
+        function calcularAreaTrianguloEquilatero() {
+            let lado = Number(document.getElementById("idLado").value)
+            
+            let area = ((lado ** 2) * Math.sqrt(3)) / 4
+
+            document.getElementById("idSaidaTriangEq").value = "O valor da área do triângulo equilátero é "+ area.toFixed(2) + " cm2"     
+        }
+
+    </script>
+</body>
+</html>

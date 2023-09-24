@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista2_Exercício07</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="idSalario" class="linha">Entre com o salário bruto:</label>
+        <input type="number" name="nmSalario" id="idSalario" class="linha" min="0" step=".01">
+
+        <input type="button" value="Ver o salário líquido" class="linha" onclick="verificarSalarioLiquido()">
+
+        <output id="idSaida"></output>
+    </form>
+
+    <script>
+        function verificarSalarioLiquido() {
+            let salarioBrt = Number(document.getElementById("idSalario").value)
+            let salarioLiq = 0
+            
+            if (salarioBrt <= 600) {
+                salarioLiq = salarioBrt
+    
+            } else if (salarioBrt > 600 && salarioBrt <= 1200) {
+                salarioLiq = salarioBrt * 0.75
+
+            } else if (salarioBrt > 1200 && salarioBrt <= 2000) {
+                salarioLiq = salarioBrt * 0.70
+
+            } else if (salarioBrt > 2000) {
+                salarioLiq = salarioBrt * 0.65
+
+            }
+
+            document.getElementById("idSaida").value = "O salário líquido é R$ "+ salarioLiq.toFixed(2) + "."
+        }
+    </script>
+</body>
+</html>
