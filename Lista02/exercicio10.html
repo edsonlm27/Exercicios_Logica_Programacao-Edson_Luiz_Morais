@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista2_Exercício10</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="idUser" class="linha">Entre com seu usuário:</label>
+        <input type="text" name="nmUser" id="idUser" class="linha">
+
+        <label for="idSenha" class="linha">Entre com sua senha:</label>
+        <input type="password" name="nmSenha" id="idSenha" class="linha">
+
+        <input type="checkbox" name="nmMostraSenha" id="idMostraSenha" onclick="mostrarSenha()">
+        <label for="idMostraSenha">Mostrar a senha</label>
+
+        <input type="button" value="Login" class="linha" onclick="validarUsuario()">
+
+        <output id="idSaida"></output>
+    </form>
+
+    <script>
+        var userId1 = "Aluno1" 
+        var userId2 = "Aluno2" 
+        var userId3 = "Aluno3" 
+        var senha1 = "Trocar123"
+        var senha2 = "Senha@123"
+        var senha3 = "123Trocar"
+
+        function validarUsuario() {
+            let usuario = document.getElementById("idUser").value
+            let senha = document.getElementById("idSenha").value
+            let mensagem
+                        
+            if (usuario == userId1) {
+                if (senha == senha1) {
+                    mensagem = '**"Acesso Permitido"**'
+                } else {
+                    mensagem = '**"Senha Incorreta"**'
+                }
+            } else if (usuario == userId2) {
+                if (senha == senha2) {
+                    mensagem = '**"Acesso Permitido"**'
+                } else {
+                    mensagem = '**"Senha Incorreta"**'
+                }
+            } else if (usuario == userId3) {
+                if (senha == senha3) {
+                    mensagem = '**"Acesso Permitido"**'
+                } else {
+                    mensagem = '**"Senha Incorreta"**'
+                }
+            } else {
+                mensagem = '**"Usuário não cadastrado"**'
+            }
+
+        document.getElementById("idSaida").value = mensagem
+        }
+
+        function mostrarSenha() {
+            let verSenha = document.getElementById("idSenha")
+            if (verSenha.type == "password") {
+                verSenha.type = "text"
+            } else {
+                verSenha.type = "password"
+            }
+        }
+        
+    </script>
+</body>
+</html>
