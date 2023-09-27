@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista3_Exercício02</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="idAnoNasc" class="linha">Qual o seu ano de nascimento?</label>
+        <input type="number" name="nmAnoNasc" id="idAnoNasc" value="1999"  min="1900" max="2023" class="linha">
+
+        <input type="button" value="Calcular a idade" class="linha" onclick="calcularIdade()">
+
+        <output id="idSaida"></output>
+    </form>
+
+    <script>
+        /* 2. Faça um programa que leia o ano de nascimento de uma pessoa, calcule a idade 
+            dela e depois mostre se ela pode ou não votar.
+        */
+        
+        function calcularIdade() {
+            let anoNascim = document.querySelector("#idAnoNasc").value
+            let idade = 0
+
+            if (anoNascim > 2023) {
+                alert("O ano não pode ser maior do que 2023!")
+            } else {
+                idade = (2023 - anoNascim)
+                document.getElementById("idSaida").value = "A sua idade é  " + idade + " anos."
+            } if (idade >= 16) {
+                document.getElementById("idSaida").value = "A sua idade é  " + idade + " anos, e você já pode votar."
+            }
+        }
+    </script>
+</body>
+</html>
