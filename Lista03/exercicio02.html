@@ -7,11 +7,14 @@
     <style>
         .linha{
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
+    <!--2. Faça um programa que leia o ano de nascimento de uma pessoa, calcule a 
+            idade dela e depois mostre se ela pode ou não votar.
+    -->
     <form action="">
         <label for="idAnoNasc" class="linha">Qual o seu ano de nascimento?</label>
         <input type="number" name="nmAnoNasc" id="idAnoNasc" value="1999"  min="1900" max="2023" class="linha">
@@ -22,10 +25,6 @@
     </form>
 
     <script>
-        /* 2. Faça um programa que leia o ano de nascimento de uma pessoa, calcule a idade 
-            dela e depois mostre se ela pode ou não votar.
-        */
-        
         function calcularIdade() {
             let anoNascim = document.querySelector("#idAnoNasc").value
             let idade = 0
@@ -34,9 +33,10 @@
                 alert("O ano não pode ser maior do que 2023!")
             } else {
                 idade = (2023 - anoNascim)
-                document.getElementById("idSaida").value = "A sua idade é  " + idade + " anos."
             } if (idade >= 16) {
-                document.getElementById("idSaida").value = "A sua idade é  " + idade + " anos, e você já pode votar."
+                document.getElementById("idSaida").value = "A sua idade é  " + idade + " anos, e você pode votar."
+            } else {
+                document.getElementById("idSaida").value = "A sua idade é  " + idade + " anos, e você ainda não pode votar."
             }
         }
     </script>

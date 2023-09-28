@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista3_Exercício03</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 3. Crie um algoritmo que leia o nome e as duas notas de um aluno, 
+        calcule a sua média e mostre na tela. No final, analise a média e mostre 
+        se o aluno teve ou não um bom aproveitamento (se ficou acima da média 7.0).
+    -->
+
+    <form action="">
+        <label for="idNomeAluno" class="linha">Digite o seu nome:</label>
+        <input type="text" name="nmNomeAluno" id="idNomeAluno" class="linha" required>
+
+        <label for="idNota1" class="linha">Digite a primeira nota:</label>
+        <input type="number" name="nmNota1" id="idNota1" min="0" max="10" step=".01" class="linha" required>
+
+        <label for="idNota2" class="linha">Digite a segundaa nota:</label>
+        <input type="number" name="nmNota2" id="idNota2" min="0" max="10" step=".01" class="linha" required>
+
+        <input type="button" value="Calcular a média" class="linha" onclick="calcularMedia()">
+
+        <output id="idSaida"></output>
+    </form>
+
+    <script>
+        
+        function calcularMedia() {
+            let nome = document.getElementById("idNomeAluno").value
+            let nota1 = Number(document.getElementById("idNota1").value)
+            let nota2 = Number(document.getElementById("idNota2").value)
+            
+            let media = (nota1 + nota2) / 2
+            
+            if (media > 7) {
+                document.getElementById("idSaida").value = nome + ",  você conseguiu média " + media + " e foi aprovado."
+            } else {
+                document.getElementById("idSaida").value = nome + ",  você conseguiu média " + media + " e não foi aprovado."
+            }
+        }
+    </script>
+</body>
+</html>

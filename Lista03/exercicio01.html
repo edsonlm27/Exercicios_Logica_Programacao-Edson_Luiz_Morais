@@ -7,11 +7,16 @@
     <style>
         .linha{
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
+    <!-- 1. Escreva um programa que pergunte a velocidade de um carro. 
+            Caso ultrapasse 80Km/h, exiba uma mensagem dizendo que o usuário foi multado. 
+            Nesse caso, exiba o valor da multa, cobrando R$5 por cada Km/h acima da velocidade permitida.
+    -->
+
     <form action="">
         <label for="idVelocidade" class="linha">Qual a velocidade do carro? (em km/h)</label>
         <input type="number" name="nmVelocidade" id="idVelocidade" min="0" class="linha">
@@ -22,11 +27,6 @@
     </form>
 
     <script>
-        /* 1. Escreva um programa que pergunte a velocidade de um carro. 
-            Caso ultrapasse 80Km/h, exiba uma mensagem dizendo que o usuário foi multado. 
-            Nesse caso, exiba o valor da multa, cobrando R$5 por cada Km/h acima da velocidade permitida.
-        */
-
         function validarVelocidade() {
             let velocidade = document.querySelector("#idVelocidade").value
             let multa = 0

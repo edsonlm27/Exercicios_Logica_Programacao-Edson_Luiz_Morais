@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista3_Exercício05</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!--5. Faça um algoritmo que leia um determinado ano e mostre se ele é ou não BISSEXTO.
+    -->
+
+    <form action="">
+        <label for="idAno" class="linha">Digite um ano:</label>
+        <input type="number" name="nmAno" id="idAno" min="0" class="linha">
+
+        <input type="button" value="Verificar se é BISSEXTO" class="linha" onclick="verificarBissexto()">
+
+        <output id="idSaida"></output>
+    </form>
+
+    <script>
+        function verificarBissexto() {
+            let ano = Number(document.querySelector("#idAno").value)
+            let bissexto = ano % 4
+            
+            if (bissexto == 0) {
+                document.getElementById("idSaida").value = "O ano " + ano + " é bissexto."
+            } else {
+                document.getElementById("idSaida").value = "O ano " + ano + " não é bissexto."
+            }
+        }
+    </script>
+</body>
+</html>

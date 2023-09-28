@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista3_Exercício04</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!--4. Desenvolva um programa que leia um número inteiro e mostre se ele é PAR ou ÍMPAR.-->
+
+    <form action="">
+        <label for="idNumero" class="linha">Digite um número inteiro</label>
+        <input type="number" name="nmNumero" id="idNumero" min="0" class="linha">
+
+        <input type="button" value="Verificar se é par" class="linha" onclick="verificarPar()">
+
+        <output id="idSaida"></output>
+    </form>
+
+    <script>
+        function verificarPar() {
+            let numero = Number(document.querySelector("#idNumero").value)
+            let par = numero % 2
+            
+            if (par == 0) {
+                document.getElementById("idSaida").value = "O número " + numero + " é par."
+            } else {
+                document.getElementById("idSaida").value = "O número " + numero + " é ímpar."
+            }
+        }
+    </script>
+</body>
+</html>

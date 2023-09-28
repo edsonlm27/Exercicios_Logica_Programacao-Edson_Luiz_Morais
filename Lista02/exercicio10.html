@@ -34,35 +34,41 @@
         var senha1 = "Trocar123"
         var senha2 = "Senha@123"
         var senha3 = "123Trocar"
+        var contador = 0
 
         function validarUsuario() {
+            contador = contador + 1
             let usuario = document.getElementById("idUser").value
             let senha = document.getElementById("idSenha").value
             let mensagem
             
-            if (usuario == userId1) {
-                if (senha == senha1) {
-                    mensagem = '**"Acesso Permitido"**'
+            if (contador <= 3) {
+                if (usuario == userId1) {
+                    if (senha == senha1) {
+                        mensagem = '**"Acesso Permitido"**'
+                    } else {
+                        mensagem = '**"Senha Incorreta"**'
+                    }
+                } else if (usuario == userId2) {
+                    if (senha == senha2) {
+                        mensagem = '**"Acesso Permitido"**'
+                    } else {
+                        mensagem = '**"Senha Incorreta"**'
+                    }
+                } else if (usuario == userId3) {
+                    if (senha == senha3) {
+                        mensagem = '**"Acesso Permitido"**'
+                    } else {
+                        mensagem = '**"Senha Incorreta"**'
+                    }
                 } else {
-                    mensagem = '**"Senha Incorreta"**'
-                }
-            } else if (usuario == userId2) {
-                if (senha == senha2) {
-                    mensagem = '**"Acesso Permitido"**'
-                } else {
-                    mensagem = '**"Senha Incorreta"**'
-                }
-            } else if (usuario == userId3) {
-                if (senha == senha3) {
-                    mensagem = '**"Acesso Permitido"**'
-                } else {
-                    mensagem = '**"Senha Incorreta"**'
+                    mensagem = '**"Usuário não cadastrado"**'
                 }
             } else {
-                mensagem = '**"Usuário não cadastrado"**'
+            mensagem = '**"Usuário bloqueado"**'
             }
-
-        document.getElementById("idSaida").value = mensagem
+            
+            document.getElementById("idSaida").value = mensagem
         }
 
         function mostrarSenha() {
