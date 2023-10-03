@@ -19,17 +19,19 @@
         <label for="idAno" class="linha">Digite um ano:</label>
         <input type="number" name="nmAno" id="idAno" min="0" class="linha">
 
-        <input type="button" value="Verificar se é BISSEXTO" class="linha" onclick="verificarBissexto()">
+        <input type="button" value="Verificar se é BISSEXTO" class="linha" onclick="verificarAnoBissexto()">
 
         <output id="idSaida"></output>
     </form>
 
     <script>
-        function verificarBissexto() {
+        function verificarAnoBissexto() {
             let ano = Number(document.querySelector("#idAno").value)
-            let bissexto = ano % 4
+            let resto4 = ano % 4
+            let resto100 = ano % 100
+            let resto400 = ano % 400
             
-            if (bissexto == 0) {
+            if (resto4 == 0 && resto100 != 0 || resto400 == 0) {
                 document.getElementById("idSaida").value = "O ano " + ano + " é bissexto."
             } else {
                 document.getElementById("idSaida").value = "O ano " + ano + " não é bissexto."

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista3_Exercício07</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 7. Numa promoção exclusiva para o Dia da Mulher, uma loja quer dar descontos 
+        para todos, mas especialmente para mulheres. 
+        Faça um programa que leia nome, sexo e o valor das compras do cliente e calcule 
+        o preço com desconto. Sabendo que:
+            - Homens ganham 5% de desconto
+            - Mulheres ganham 13% de desconto
+    -->
+
+    <form action="">
+        <label for="idNomeCliente" class="linha">Digite o nome do cliente:</label>
+        <input type="text" name="nmNomeCliente" id="idNomeCliente" class="linha" required>
+
+        <label for="idSexo" class="linha">Sexo:</label>
+        <input type="radio" name="nmSexo" id="idSexoF" value="Fem" checked>
+        <label for="idSexoF">Feminino</label><br>
+        <input type="radio" name="nmSexo" id="idSexoM" value="Masc">
+        <label for="idSexoM">Masculino</label>
+        
+        <label for="idCompra" class="linha">Digite o valor das compras:</label>
+        <input type="number" name="nmCompra" id="idCompra" min="0" step=".01" class="linha" required>
+
+        <input type="button" value="Calcular o desconto" class="linha" onclick="calcularCompra()">
+            <button type="button"></button>
+        <output id="idSaida"></output>
+    </form>
+
+    <script>
+        
+        function calcularCompra() {
+            let nome = document.getElementById("idNomeCliente").value
+            let valorCompra = Number(document.getElementById("idCompra").value)
+            let sexo = document.querySelector("input[name=nmSexo]:checked").value
+            let valorComDesconto
+            
+            if (sexo == "Fem") {
+                valorComDesconto = 0.87
+            } else {
+                valorComDesconto = 0.95
+            }
+            let valorAPagar = valorCompra * valorComDesconto
+            document.getElementById("idSaida").value = nome + ", o valor com desconto é R$"+ valorAPagar.toFixed(2) + " . "
+        }
+    </script>
+</body>
+</html>

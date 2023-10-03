@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista3_Exercício08</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 8. Faça um algoritmo que pergunte a distância que um passageiro deseja percorrer em Km. 
+            Calcule o preço da passagem, cobrando R$0.50 por Km para viagens até 200Km e 
+            R$0.45 para viagens mais longas.
+    -->
+
+    <form action="">
+        <label for="idDistancia" class="linha">Qual a distância a percorrer? (em km)</label>
+        <input type="number" name="nmDistancia" id="idDistancia" min="0" class="linha">
+
+        <input type="button" value="Calcular a passagem" class="linha" onclick="calcularPassagem()">
+
+        <output id="idSaida"></output>
+    </form>
+
+    <script>
+        function calcularPassagem() {
+            let distancia = Number(document.querySelector("#idDistancia").value)
+            let saida = document.querySelector("#idSaida")
+            let valorPassagem
+
+            if (distancia > 200) {
+                valorPassagem = (distancia - 200) * 0.45 + (200 * 0.5)
+            } else {
+                valorPassagem = distancia * 0.5
+            }
+            saida.value = "O valor da passagem é R$ " + valorPassagem.toFixed(2)
+        }
+    </script>
+</body>
+</html>

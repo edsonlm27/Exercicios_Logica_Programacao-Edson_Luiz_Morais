@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista3_Exercício09</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 9. Crie um programa que leia o tamanho de três segmentos de reta.
+        Analise seus comprimentos e diga se é possível formar um triângulo com essas retas.
+        Matematicamente, para três segmentos formarem um triângulo, o comprimento de cada lado 
+        deve ser menor que a soma dos outros dois.
+    -->
+
+    <form action="">
+        <label for="idLado1" class="linha">Digite o comprimento do Lado1:</label>
+        <input type="number" name="nmLado1" id="idLado1" class="linha">
+
+        <label for="idLado2" class="linha">Digite o comprimento do Lado2:</label>
+        <input type="number" name="nmLado2" id="idLado2" class="linha">
+
+        <label for="idLado3" class="linha">Digite o comprimento do Lado3:</label>
+        <input type="number" name="nmLado3" id="idLado3" class="linha">
+
+        <button type="button" class="linha" onclick="verificarLados()">Verificar Lados</button>
+
+        <output id="idSaida"></output>
+    </form>
+
+    <script>
+        function verificarLados() {
+            let lado1 = Number(document.getElementById("idLado1").value)
+            let lado2 = Number(document.getElementById("idLado2").value)
+            let lado3 = Number(document.getElementById("idLado3").value)
+            
+            let saida = document.getElementById("idSaida")
+
+            let somaLados12 = lado1 + lado2
+            let somaLados23 = lado2 + lado3
+            let somaLados31 = lado3 + lado1
+            
+            let isTriangulo = true
+
+            if (somaLados12 < lado3) {
+                isTriangulo = false
+            }
+
+            if (somaLados23 < lado1) {
+                isTriangulo = false
+            }
+            
+            if (somaLados31 < lado2) {
+                isTriangulo = false
+            }
+            
+            if (isTriangulo == true) {
+                saida.value = "As três medidas formam um triângulo."
+            } else {
+                saida.value = "As três medidas não podem formar um triângulo."
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista3_Exercício10</title>
+    <style>
+        .linha{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 10. O Índice de Massa Corpórea (IMC) é um valor calculado baseado na altura e no peso de uma pessoa.
+        De acordo com o valor do IMC, podemos classificar o indivíduo dentro de certas faixas.
+        - abaixo de 18.5: Abaixo do peso
+        - entre 18.5 e 25: Peso ideal
+        - entre 25 e 30: Sobrepeso
+        - entre 30 e 40: Obesidade
+        - acima de 40: Obesidade mórbida
+    Obs: O IMC é calculado pela expressão peso/altura² (peso dividido pelo quadrado da altura)
+    Crie um programa que receba o peso e a altura de uma pessoa e informe na tela em que faixa de IMC ela se encontra. 
+    -->
+
+    <form action="">
+        <label for="idPeso" class="linha">Digite o seu peso:</label>
+        <input type="number" name="nmPeso" id="idPeso" min="0" step=".01" class="linha" required>
+
+        <label for="idAltura" class="linha">Digite a sua altura:</label>
+        <input type="number" name="nmAltura" id="idAltura" min="0" step=".01" class="linha" required>
+
+        <button type="button" onclick="calcularIMC()" class="linha">Calcular o IMC</button>
+        
+        <output id="idSaida"></output>
+    </form>
+
+    <script>
+        
+        function calcularIMC() {
+            let peso = Number(document.getElementById("idPeso").value)
+            let altura = Number(document.getElementById("idAltura").value)
+
+            let imc = peso / (altura * altura)
+
+            let saida
+
+            if (imc < 18.5) {
+                saida = "Abaixo do peso"
+            } else if (imc < 25) {
+                saida = "Peso ideal"
+            } else if (imc < 30) {
+                saida = "Sobrepeso"
+            } else if (imc < 40) {
+                saida = "Obesidade"
+            } else {
+                saida = "Obesidade mórbida"
+            }
+            document.getElementById("idSaida").value = "O valor do IMC é " + imc.toFixed(2) + " e o resultado é: " + saida
+        }
+    </script>
+</body>
+</html>
