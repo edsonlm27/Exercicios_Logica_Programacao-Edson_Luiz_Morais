@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista4_Exercício03</title>
+</head>
+<body>
+    <!-- 3. Crie um aplicativo que mostre na tela a seguinte contagem:
+        "Inicio 0 4 8 12 16 20 Acabou!" 
+    -->
+    <h3>Lista 4 / Exercício 03 / (v1, com 'for')</h3>
+
+    <output id="idSaida"></output>
+    <script>
+        let mensagem = "Inicio "
+        
+        for (let index = 0; index <= 20 ; index += 4) {
+            mensagem = mensagem + index + " "
+        }
+        
+        mensagem = mensagem + " Acabou!"
+        document.getElementById("idSaida").value = mensagem
+    </script>
+</body>
+</html>

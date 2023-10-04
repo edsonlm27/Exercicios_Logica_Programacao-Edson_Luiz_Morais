@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista4_Exercício04</title>
+</head>
+<body>
+    <!-- 4. Desenvolva um programa que mostre na tela a seguinte contagem: 
+        "Inicio 100 95 90 85 80 ... 0 Acabou!"
+    -->
+    <h3>Lista 4 / Exercício 04 / (v2, com 'while')</h3>
+
+    <output id="idSaida"></output>
+    <script>
+        let mensagem = "Inicio "
+        let cont = 100
+
+        while (cont >= 0) {
+            mensagem = mensagem + cont + " "
+            cont -= 5
+        }
+
+        mensagem = mensagem + " Acabou!"
+        document.getElementById("idSaida").value = mensagem
+    </script>
+</body>
+</html>

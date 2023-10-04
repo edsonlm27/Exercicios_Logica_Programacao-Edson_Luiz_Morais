@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista4_Exercício02</title>
+</head>
+<body>
+    <!-- 2. Faça um algoritmo que mostre na tela a seguinte contagem:
+        "Inicio 15 14 13 12 11 10 9 8 7 6 5 4 3 Acabou!" 
+    -->
+    <h3>Lista 4 / Exercício 02 / (v2, com 'while')</h3>
+
+    <output id="idSaida"></output>
+    <script>
+        let mensagem = "Inicio "
+        let cont = 15
+
+        while (cont >= 3) {
+            mensagem = mensagem + cont + " "
+            cont --
+        }
+
+        mensagem = mensagem + " Acabou!"
+        document.getElementById("idSaida").value = mensagem
+    </script>
+</body>
+</html>

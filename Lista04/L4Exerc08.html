@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista4_Exercício08</title>
+    <style>
+        .linha {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 8. Crie um algoritmo que leia o valor inicial da contagem, o valor final e o incremento, 
+        mostrando em seguida todos os valores no intervalo:  
+        Exemplo: 
+        Digite o primeiro Valor: 3 
+        Digite o último Valor: 10  
+        Digite o incremento: 2  
+        Contagem: 3 5 7 9 Acabou!
+    -->
+    <h3>Lista 4 / Exercício 08</h3>
+
+    <label for="idPrimValor" class="linha">Digite o primeiro valor:</label>
+    <input type="number" name="nmPrimValor" id="idPrimValor" class="linha">
+
+    <label for="idUltValor" class="linha">Digite o último valor:</label>
+    <input type="number" name="nmUltValor" id="idUltValor" class="linha">
+
+    <label for="idIncrem" class="linha">Digite o incremento:</label>
+    <input type="number" name="nmIncrem" id="idIncrem" class="linha">
+
+    <button type="button" class="linha" onclick="mostrarValores()">Mostrar os Valores</button>
+
+    <output id="idSaida"></output>
+
+    <script>
+        function mostrarValores() {
+            let primeiroValor = Number(document.getElementById("idPrimValor").value)
+            let ultimoValor = Number(document.getElementById("idUltValor").value)
+            let incremento = Number(document.getElementById("idIncrem").value)
+            
+            let mensagem = "Contagem: "
+        
+            for (let index = primeiroValor; index <= ultimoValor; index += incremento) {
+                mensagem = mensagem + index + " "
+            }
+        
+            mensagem = mensagem + " Acabou!"
+            document.getElementById("idSaida").value = mensagem            
+        }
+
+    </script>
+</body>
+</html>

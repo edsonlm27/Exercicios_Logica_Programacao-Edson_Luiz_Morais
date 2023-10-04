@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista4_Exercício09</title>
+    <style>
+        .linha {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 9. O programa do Exercício 08 vai ter um problema quando digitarmos o primeiro valor maior 
+        que o último. Resolva esse problema com um código que funcione em qualquer situação.
+
+    -->
+    <h3>Lista 4 / Exercício 09</h3>
+
+    <label for="idPrimValor" class="linha">Digite o primeiro valor:</label>
+    <input type="number" name="nmPrimValor" id="idPrimValor" class="linha">
+
+    <label for="idUltValor" class="linha">Digite o último valor:</label>
+    <input type="number" name="nmUltValor" id="idUltValor" class="linha">
+
+    <label for="idIncrem" class="linha">Digite o incremento:</label>
+    <input type="number" name="nmIncrem" id="idIncrem" class="linha">
+
+    <button type="button" class="linha" onclick="mostrarValores()">Mostrar os Valores</button>
+
+    <output id="idSaida"></output>
+
+    <script>
+        function mostrarValores() {
+            let primValor = Number(document.getElementById("idPrimValor").value)
+            let ultValor = Number(document.getElementById("idUltValor").value)
+            let incremento = Number(document.getElementById("idIncrem").value)
+            
+            let mensagem = "Contagem: "
+
+            if (incremento < 0) {
+                incremento *= -1
+            }
+
+            if (incremento == 0) {
+                alert("O incremento não pode ser zero!")
+            }
+
+            if (primValor < ultValor) {
+                for (let index = primValor; index <= ultValor; index += incremento) {
+                    mensagem = mensagem + index + " "
+                }
+                mensagem = mensagem + " Acabou!"
+            } else if (primValor > ultValor) {
+                for (let index = primValor; index >= ultValor; index -= incremento) {
+                    mensagem = mensagem + index + " "
+                }
+                mensagem = mensagem + " Acabou!"
+            } else {
+                mensagem = "O número inicial é igual ao número final!"
+            }
+        
+            document.getElementById("idSaida").value = mensagem            
+        }
+
+    </script>
+</body>
+</html>

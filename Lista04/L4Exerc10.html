@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista4_Exercício10</title>
+    <style>
+        .linha {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 10. Crie um programa que leia os valores inicial e final de um intervalo e 
+        imprima todos os valores impares ou pares contidos no intervalo. 
+        - O usuário deve poder escolher entre impares e pares.
+    -->
+    <h3>Lista 4 / Exercício 10</h3>
+
+    <label for="idPrimValor" class="linha">Digite o primeiro valor:</label>
+    <input type="number" name="nmPrimValor" id="idPrimValor" class="linha">
+
+    <label for="idUltValor" class="linha">Digite o último valor:</label>
+    <input type="number" name="nmUltValor" id="idUltValor" class="linha">
+
+    <input type="radio" name="nmParImpar" id="idPar" value="par" checked>
+    <label for="idPar">Par</label><br>
+    <input type="radio" name="nmParImpar" id="idImpar" value="impar">
+    <label for="idImpar">Impar</label><br><br>
+
+    <button type="button" class="linha" onclick="mostrarValores()">Mostrar os Valores</button>
+
+    <output id="idSaida"></output>
+
+    <script>
+        function mostrarValores() {
+            let primValor = Number(document.getElementById("idPrimValor").value)
+            let ultValor = Number(document.getElementById("idUltValor").value)
+            let parImpar = document.querySelector("input[name=nmParImpar]:checked").value
+
+            let mensagem = "Contagem: "
+        
+            if (parImpar == "par") {
+                for (let num = primValor; num <= ultValor; num++){
+                    let restoPar = num % 2
+                    if (restoPar == 0) {
+                        mensagem = mensagem + num + " "
+                    }
+                }
+            } else {
+                for (let num = primValor; num <= ultValor; num++){
+                    let restoImpar = num % 2
+                    if (restoImpar != 0) {
+                        mensagem = mensagem + num + " "
+                    }
+                }
+            }
+        
+            mensagem = mensagem + " Acabou!"
+            document.getElementById("idSaida").value = mensagem            
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista4_Exercício05</title>
+    <style>
+        .linha {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 5. Faça um algoritmo que pergunte ao usuário um número inteiro e positivo qualquer e mostre uma contagem até esse valor:  
+        Ex: Digite um valor: 77  
+        Contagem: "Inicio 1 2 3 4 5 6 7 ... 75 76 77 Acabou!"
+    -->
+    <h3>Lista 4 / Exercício 05 / (v2, com 'while')</h3>
+
+    
+    <label for="idNum" class="linha">Digite um número inteiro e positivo qualquer</label>
+    <input type="number" name="nmNum" id="idNum" class="linha">
+
+    <button type="button" class="linha" onclick="mostrarContagem()">Mostrar Contagem</button>
+
+    <output id="idSaida"></output>
+    <script>
+        function mostrarContagem() {
+            let numDigit = Number(document.getElementById("idNum").value)
+            let mensagem = "Inicio "
+            let cont = 1
+
+            while (cont <= numDigit) {
+                mensagem = mensagem + cont + " "
+                cont ++
+            }
+            mensagem = mensagem + " Acabou!"
+            document.getElementById("idSaida").value = mensagem    
+        }
+
+ 
+       
+    </script>
+</body>
+</html>
