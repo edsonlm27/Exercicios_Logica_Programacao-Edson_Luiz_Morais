@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista5_Exercício1</title>
+    <style>
+        .linha {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1. Crie um algoritmo que mostre na tela todos os números entre 1 e 100 
+        que sejam múltiplos de 3 ou 5.
+    -->
+
+    <h3>Lista 5 / Exercício 01</h3>
+
+    <button type="button" class="linha" onclick="mostrarTela()">Mostrar Tela</button>
+    <output id="idSaida"></output>
+
+    <script>
+        function mostrarTela() {
+            let mensagem = "Inicio "
+            
+            for (let index = 1; index <= 100; index++){
+                let resto3 = index % 3
+                let resto5 = index % 5
+                if (resto3 == 0 || resto5 == 0) {
+                    mensagem = mensagem + index + " "
+                }
+
+            }
+            mensagem = mensagem + "Acabou!"
+            document.getElementById("idSaida").value = mensagem
+        }       
+    </script>
+</body>
+</html>

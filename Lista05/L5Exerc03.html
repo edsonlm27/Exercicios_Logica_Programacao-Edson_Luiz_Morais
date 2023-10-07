@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista5_Exercício03</title>
+    <style>
+        .linha {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 3. Desenvolva um programa que faça o sorteio de 20 números entre 0 e 10 e mostre na tela:
+        a) Quais foram os números sorteados  
+        b) Quantos números estão acima de 5  
+        c) Quantos números são divisíveis por 3
+    -->
+
+    <h3>Lista 5 / Exercício 03</h3>
+
+    <button type="button" class="linha" onclick="sortearNumeros()">Sortear Números</button>
+    <output id="idSaida"></output>
+
+    <script>
+        
+        var mensagem = ""
+        var contNumMaior5 = 0
+        var contNumDiv3 = 0
+
+        function sortearNumeros() {
+            for (let index = 1; index <= 20; index++){
+                var numSorteado = parseInt(Math.random() * 11)
+                console.log(numSorteado);
+                mensagem = mensagem + numSorteado + " "
+                if (numSorteado > 5) {
+                    contNumMaior5++
+                }
+
+                if (numSorteado % 3 == 0 && numSorteado != 0) {
+                    contNumDiv3++
+                }
+           }
+           document.getElementById("idSaida").innerText = mensagem +
+           "\n Quantidade de números acima de 5: " + contNumMaior5 +
+           "\n Quantidade de números divisíveis por 3: " + contNumDiv3 
+        }       
+    </script>
+</body>
+</html>

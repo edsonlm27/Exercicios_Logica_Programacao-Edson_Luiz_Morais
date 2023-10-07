@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista5_Exercício04</title>
+    <style>
+        .linha {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 4. Faça um programa que mostre os 10 primeiros elementos da Sequência de Fibonacci:  
+        0 1 1 2 3 5 8 13 21...
+    -->
+
+    <h3>Lista 5 / Exercício 04</h3>
+
+    <button type="button" class="linha" onclick="imprimirFibonacci()">Imprimir Fibonacci</button>
+    <output id="idSaida"></output>
+
+    <script>
+        function imprimirFibonacci() {
+            let numFibo = 0
+            let elemAnt = 0
+            let elemAtu = 1
+            let elemProx
+
+            let mensagem = "0 "
+
+            while (numFibo < 9) {
+                mensagem = mensagem + elemAtu + " "
+                console.log(elemAtu);
+                elemProx = elemAnt + elemAtu
+                elemAnt = elemAtu
+                elemAtu = elemProx
+                numFibo++
+            }
+            document.getElementById("idSaida").value = mensagem
+        }       
+    </script>
+</body>
+</html>

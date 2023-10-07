@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista5_Exercício07</title>
+    <style>
+        .linha {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 7. Em um jogo de adivinhação, o jogador deve descobrir um número 
+        entre 1 e 10 usando até três tentativas. A cada tentativa o jogador 
+        é informado se o número foi descoberto, ou se ele é maior ou menor 
+        do que a tentativa. Se após três tentativas o jogador não descobrir 
+        o número, então ele perde o jogo. 
+        Crie um algoritmo que implemente esse jogo.
+    -->
+
+    <h3>Lista 5 / Exercício 07</h3>
+
+    <form action="">
+        <label for="idTentativa">Aposte um número entre 1 e 10:</label>
+        <input type="text" name="nmTentativa" id="idTentativa" min="0" max="10" autocomplete="off" class="linha">
+
+        <input type="button" value="Apostar" onclick="apostar()" class="linha">
+
+        <label for="idSaida">Resultado:</label>
+        <output id="idSaida" class="linha"></output>
+    </form>
+
+    <script>
+        // sortear um número entre 0 e 10
+        var numSorteado = parseInt(Math.random() * 11)
+        var contTentativas = 0 
+        var mensagem = ""
+
+        function apostar() {
+            // obter o número digitado na tela
+            var numDigitado = Number(document.getElementById("idTentativa").value)
+
+            // contar quantas tentativas foram feitas
+            contTentativas ++
+
+            // testar a quantidade de tentativas
+            if (contTentativas <= 3) {
+                if (numDigitado == numSorteado) {
+                    mensagem = "Parabéns, você acertou o número sorteado!"
+                } else {
+                    if (contTentativas == 3) {
+                        mensagem = "Infelizmente você perdeu o jogo!"
+                    } else {
+                        if (numDigitado > numSorteado) {
+                            mensagem = "O número digitado é maior do que o número sorteado."
+                        } else if (numDigitado < numSorteado) {
+                            mensagem = "O número digitado é menor do que o número sorteado."
+                        }
+                    }    
+                } 
+            } else {
+                mensagem = "Infelizmente você perdeu o jogo!"
+                }
+            document.getElementById("idSaida").value = mensagem
+        }
+    </script>
+</body>
+</html>

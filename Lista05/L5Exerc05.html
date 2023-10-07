@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista5_Exercício05</title>
+    <style>
+        .linha {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 5. Crie um aplicativo que leia o preço de 'n' produtos. 
+        No final, mostre na tela qual foi o maior e qual foi o menor preço digitados.
+    -->
+
+    <h3>Lista 5 / Exercício 05</h3>
+
+    <form action="">
+        <label for="idPreco">Digite o preço do produto em Reais</label>
+        <input type="number" name="nmPreco" id="idPreco" min="0" step=".01" class="linha">
+
+        <button type="button" class="linha" onclick="registrarIdade()">Registrar a Idade</button>
+        <button type="button" class="linha" onclick="mostrarValores()">Mostrar os Valores</button>
+        
+        <output id="idSaida"></output>
+    </form>
+
+    <script>
+        var menorPreco = 1000
+        var maiorPreco = 0
+
+        function registrarPreco() {
+            let preco = Number(document.getElementById("idPreco").value)
+        
+            if (preco > maiorPreco) {
+                maiorPreco = preco
+            }
+
+            if (preco < menorPreco) {
+                menorPreco = preco
+            }
+        }
+
+        function mostrarValores() {
+            document.getElementById("idSaida").innerText = "O menor preço é R$ " + menorPreco.toFixed(2) + 
+                "\n O maior preço é R$ " + maiorPreco.toFixed(2)
+        }
+    </script>
+</body>
+</html>

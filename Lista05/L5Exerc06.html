@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista5_Exercício06</title>
+    <style>
+        .linha {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 6. Crie um algoritmo que leia a idade de 'n' pessoas, mostrando no final:  
+            a) Qual é a média de idade do grupo  
+            b) Quantas pessoas tem mais de 18 anos  
+            c) Quantas pessoas tem menos de 5 anos  
+            d) Qual foi a maior idade lida
+    -->
+
+    <h3>Lista 5 / Exercício 06</h3>
+
+    <form action="">
+        <label for="idIdade">Digite a idade da pessoa:</label>
+        <input type="text" name="nmIdade" id="idIdade" min="0" class="linha">
+
+        <button type="button" class="linha" onclick="registrarIdade()">Registrar a idade</button>
+        
+        <label for="idSaidaMediaIdades">Média das idades:</label>
+        <output id="idSaidaMediaIdades" class="linha"></output>
+        <label for="idSaidaIdadeMaior18">Idades acima de 18 anos:</label>
+        <output id="idSaidaIdadeMaior18" class="linha"></output>
+        <label for="idSaidaIdadeMenor5">Idades abaixo de 5 anos:</label>
+        <output id="idSaidaIdadeMenor5" class="linha"></output>
+        <label for="idSaidaMaiorIdade">Maior idade:</label>
+        <output id="idSaidaMaiorIdade" class="linha"></output>
+    </form>
+
+    <script>
+        var idadeTela
+        var somaIdades = 0
+        var qtdeIdades = 0
+        var mediaIdades = 0
+        var idadeMaior18 = 0
+        var idadeMenor5 = 0
+        var maiorIdade = 0
+
+        function registrarIdade() {
+            // receber a idade da tela
+            idadeTela = Number(document.getElementById("idIdade").value)
+        
+            // somar as idades digitadas
+            somaIdades += idadeTela
+
+            // contar quantas idades foram digitadas
+            qtdeIdades  ++
+
+            // calcular a média das idades
+            mediaIdades = somaIdades / qtdeIdades
+            document.getElementById("idSaidaMediaIdades").value = mediaIdades
+            
+            // verificar idades maiores que 18
+            if (idadeTela > 18) {
+                idadeMaior18 ++
+                document.getElementById("idSaidaIdadeMaior18").value = idadeMaior18
+            }
+
+            // verificar idades menores que 5
+            if (idadeTela < 5) {
+                idadeMenor5 ++
+                document.getElementById("idSaidaIdadeMenor5").value = idadeMenor5
+            }
+
+            // verificar a maior idade digitada
+            if (maiorIdade < idadeTela) {
+                maiorIdade = idadeTela
+                document.getElementById("idSaidaMaiorIdade").value= maiorIdade
+            }            
+
+        }
+
+    </script>
+</body>
+</html>
