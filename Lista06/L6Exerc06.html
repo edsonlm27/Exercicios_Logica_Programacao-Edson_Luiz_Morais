@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista6_Exercício06</title>
+    <style>
+        .linha {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 6. Faça um programa que leia "n" nomes de pessoas e guarde-os em um vetor. No
+            final, mostre uma listagem com todos os nomes informados, na ordem inversa
+            daquela em que eles foram informados.
+    -->
+
+    <h3>Lista 6 / Exercício 06</h3>
+
+    <form action="">
+        <label for="idNome">Nome:</label>
+        <input type="text" name="nmNome" id="idNome" class="linha">
+
+        <input type="button" value="Salvar" onclick="salvar()">
+        <input type="button" value="Exibir" onclick="exibirInvert()">
+    </form>
+
+    <script>
+        
+        var nome = []
+
+        function salvar() {
+            let nomeDigitado = document.getElementById("idNome").value
+            nome.push(nomeDigitado)
+        }
+        
+        function exibirInvert() {
+            for (let index = (nome.length -1); index > -1; index--) {
+                console.log(nome[index]);
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista6_Exercício07</title>
+    <style>
+        .linha {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 7. Escreva um programa que leia "n" números e guarde-os em um vetor. No final,
+            mostre o vetor inteiro na tela e em seguida mostre em que posições foram
+            digitados valores que são múltiplos de 10.
+    -->
+
+    <h3>Lista 6 / Exercício 07</h3>
+
+    <form action="">
+        <label for="idNumero">Número:</label>
+        <input type="number" name="nmNumero" id="idNumero" class="linha">
+
+        <button type="button" onclick="salvar()" >Salvar</button>
+        <button type="button" onclick="exibir()">Exibir</button>
+
+        <output id="idSaida" class="linha"></output>
+    </form>
+
+    <script>
+        
+        var numero = []
+
+        function salvar() {
+            // adicionando o valor digitado diretamente no array
+            numero.push(Number(document.getElementById("idNumero").value))
+            // limpando o valor digitado após clicar no botão 'Salvar'
+            document.getElementById("idNumero").value = ""
+        }
+        
+        function exibir() {
+            let mensagem = numero.toString() + "\n Posições dos múltiplos de 10: "
+            for (let index = 0; index < numero.length ; index++) {
+                const num = numero[index];
+                // testando se o número digitado é divisível por 10
+                if (num % 10 == 0) {
+                    mensagem = mensagem + index + ";"
+                }
+            }
+            document.getElementById("idSaida").innerText = mensagem
+
+            console.log(numero);
+        }
+
+    </script>
+</body>
+</html>

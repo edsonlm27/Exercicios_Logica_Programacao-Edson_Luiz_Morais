@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista6_Exercício08</title>
+    <style>
+        .linha {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 8. Faça um algoritmo que preencha um vetor de 30 posições com 
+        números entre 1 e 15 sorteados pelo computador. Depois disso, 
+        peça para o usuário digitar um número (chave) e seu programa 
+        deve mostrar em que posições essa chave foi encontrada. 
+        Mostre também quantas vezes a chave foi sorteada.
+    -->
+
+    <h3>Lista 6 / Exercício 08</h3>
+
+    <form action="">
+        <label for="idNumero">Digite um número entre 1 e 15:</label>
+        <input type="number" name="nmNumero" id="idNumero" class="linha" min="1" max="15">
+        
+        <button type="button" onclick="buscarNumero()" class="linha">Buscar o Número</button>
+
+        <output id="idSaida" class="linha"></output>
+    </form>
+
+    <script>
+        
+        var numero = []
+      
+        for (let index = 0; index < 30; index++){
+            numero.push(parseInt(Math.random() * 16))
+        }
+        console.log(numero);
+        
+        function buscarNumero() {
+            let mensagem = ""
+            let contChave = 0
+            let chave = Number(document.getElementById("idNumero").value)
+            for (let index = 0; index < numero.length ; index++) {
+                const num = numero[index];
+                // testando se o número digitado foi sorteado
+                if (num == chave) {
+                    mensagem = mensagem + index + ";"
+                    contChave = contChave + 1
+                }
+            }
+
+            if (mensagem == "") {
+                mensagem = "O número digitado não aparece em nem uma posição!"
+            }
+
+            document.getElementById("idSaida").innerText = "Posições em que a chave aparece: " + mensagem + 
+                "\n A chave aparece " + contChave + " vezes."
+
+        }
+
+    </script>
+</body>
+</html>

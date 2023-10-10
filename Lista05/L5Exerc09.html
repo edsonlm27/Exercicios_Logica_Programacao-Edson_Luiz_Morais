@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista5_Exercício09</title>
+    <style>
+        .linha {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 9. Crie um novo programa a partir do exercício anterior e permita que o usuário escolha 
+        em que unidade de medida ele deseja informar a temperatura (C, F ou K). O programa deverá 
+        converter a temperatura para as outras unidades de medida. 
+        Sendo C= Celsius, F= Fahrenheit e K = Kelvin 
+
+        Formulas fornecidas: 
+            K=C+273
+            K-273 = C
+
+            F=(9*C+160)/5 
+            ((F * 5)-160)/9 = C
+
+            ((F * 5)-160)/9 + 273 = K
+            F  = (((K - 273) * 9) + 160)/5
+
+        Referências: https://www.infoescola.com/fisica/conversao-de-escalas-termometricas/
+    -->
+
+    <h3>Lista 5 / Exercício 09</h3>
+
+    <form action="">
+        <label for="idTemp">Entre com a temperatura:</label>
+        <input type="number" name="nmTemp" id="idTemp" class="linha">
+
+        <input type="radio" name="nmEscala" id="idCelsius">
+        <label for="idCelsius">ºC</label>
+
+        <input type="radio" name="nmEscala" id="idFahrenheit">
+        <label for="idFahrenheit">ºF</label>
+
+        <input type="radio" name="nmEscala" id="idKelvin">
+        <label for="idKelvin">ºK</label>
+
+        <br>
+
+        <input type="button" value="Converter Temperatura" onclick="converterTemp()" class="linha">
+
+        <label for="idSaida">Resultado:</label>
+        <output id="idSaida" class="linha"></output>
+    </form>
+
+    <script>
+        var mensagem = ""
+        
+        function converterTemp() {
+            const temp = Number(document.getElementById("idTemp").value)
+            // usa o querySelector para capturar o button selecionado (checked)
+            const escala = document.querySelector("input[name=nmEscala]:checked").id
+            let celsius = 0
+            let fahrenheit = 0
+            let kelvin = 0
+
+            switch (escala) {
+                case "idCelsius" :
+                    celsius = temp
+                    fahrenheit = (celsius * 1.8) +32
+                    kelvin = celsius + 273
+                    break;
+
+                case "idFahrenheit" :
+                    fahrenheit = temp
+                    celsius = (fahrenheit - 32) / 1.8
+                    kelvin = celsius + 273
+                    break;
+
+                case "idKelvin" :
+                    kelvin = temp
+                    celsius = kelvin - 273
+                    fahrenheit = (celsius * 1.8) +32
+                    break;
+            
+                default:
+                    break;
+            }
+
+            // apresentando as temperaturas convertidas
+            document.getElementById("idSaida").innerText = celsius.toFixed(2) + " ºC \n" +
+                fahrenheit.toFixed(2) + " ºF \n" + kelvin.toFixed(2) + " ºK "
+        }
+    </script>
+</body>
+</html>

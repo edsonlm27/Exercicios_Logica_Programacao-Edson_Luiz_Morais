@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista6_Exercício05</title>
+</head>
+<body>
+    <!-- 5. Crie um programa que preencha automaticamente um vetor numérico com 20
+números gerados aleatoriamente pelo computador e depois mostre os valores
+gerados na tela (console.log).
+    -->
+
+    <h3>Lista 6 / Exercício 05</h3>
+
+    <script>
+        
+        var numero = []
+      
+        for (let index = 0; index < 20; index++){
+            numero.push(parseInt(Math.random() * 101))
+        }
+        
+        console.table(numero)
+        console.log(numero);
+
+    </script>
+</body>
+</html>
