@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista7_Exercício01</title>
+    <style>
+        .linha {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1. Faça um algoritmo que leia a nota de "n" alunos de uma turma e 
+        guarde-as em um vetor. No final, mostre:  
+            a) Qual e a media da turma   
+            b) Quantos alunos estão acima da média da turma  
+            c) Qual foi a maior nota digitada  
+            d) Em que posições a maior nota aparece
+    -->
+
+    <h3>Lista 7 / Exercício 01</h3>
+
+    <form action="">
+        <label for="idNota" class="linha">Nota</label>
+        <input type="number" name="nmNota" id="idNota" step=".01" class="linha">
+        <input type="button" value="Incluir" class="linha" onclick="incluirNota()">
+        <input type="button" value="Excluir" class="linha" onclick="excluirNota">
+        <input type="button" value="Média da Turma" class="linha" onclick="questaoA()">
+        <input type="button" value="Alunos acima da Média" class="linha" onclick="questaoB()">
+        <input type="button" value="Maior Nota da Turma" class="linha" onclick="questaoC()">
+        <input type="button" value="Posições da Maior Nota" class="linha" onclick="questaoD()">
+
+        <output id="idSaidaA"></output>
+        <output id="idSaidaB"></output>
+        <output id="idSaidaC"></output>
+        <output id="idSaidaD"></output>
+    </form>
+
+    <script>
+        var notas = []
+    
+        function incluirNota() {
+            notas.push(Number(document.getElementById("idNota").value))
+            document.getElementById("idNota").value = ""
+        }
+
+        function excluirNota() {
+            notas.pop()
+            console.log(notas);
+        }
+
+        // verificação da média da turma
+        function questaoA() {
+            let saida= document.getElementById("idSaidaA")
+            let somaNotas = 0
+            let media = 0
+        
+            notas.forEach(function (nota, index) {
+                console.log(nota + " " + index);
+                somaNotas = somaNotas + nota
+            })
+
+            media = somaNotas / notas.length
+            saida.innerText = "Média da turma: " + media + "\n"
+        }
+        
+        // verificação dos alunos acima da média
+        function questaoB() {
+            let saida = document.getElementById("idSaidaB")
+            let peso = 1/notas.length
+            let media = 0
+            let alunosAcimaMedia = []
+
+            notas.forEach(function(element) {
+                media = media + (element * peso)
+            })
+
+            notas.forEach(function(element, index) {
+                if (element > media) {
+                    alunosAcimaMedia.push(index)
+                }
+            })
+            saida.innerText = "Alunos acima da médis: " + alunosAcimaMedia.toString() + "\n"
+        }
+
+        // verificação da maior nota
+        function questaoC() {
+            let saida = document.getElementById("idSaidaC")
+            let maior = -Infinity
+
+            notas.forEach(function(element) {
+                if (element > maior) {
+                    maior = element
+                }
+            })
+            saida.innerText = "A maior nota é: " + maior + "\n"
+            return maior
+        }
+
+        // verificação das posições da maior nota
+        function questaoD() {
+            let saida = document.getElementById("idSaidaD")
+            let maiorNota = questaoC()
+            let posicoesMaiorNota = []
+            
+            notas.forEach(function(nota, index) {
+                if (nota == maiorNota) {
+                    posicoesMaiorNota.push(index)
+                }
+                
+            })
+            saida.value = "A maior nota aparece nas posições: " + posicoesMaiorNota.toString()
+        }
+
+    </script>
+</body>
+</html>
