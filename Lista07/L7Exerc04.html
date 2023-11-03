@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista7_Exercício04</title>
+    <style>
+        .linha {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 4. Crie um programa para armazenar informações meteorológicas. 
+        - Crie um vetor para armazenar 30 temperaturas. (pre-inicializado)
+        - Calcular a média das temperaturas. 
+        - O usuário pode informar um dia qualquer e o programa deve dizer se a 
+    temperatura desse dia estava acima ou abaixo da média. (dia = indice)
+    -->
+
+    <h3>Lista 7 / Exercício 04</h3>
+
+    <form action="">
+        <label for="idDia" class="linha">Dia:</label>
+        <input type="number" name="nmDia" id="idDia" class="linha" placeholder="Dia entre 0 e 29">
+        <input type="button" id="idBtTestarDia" value="Testar o dia" class="linha">
+        <output id="idSaida"></output>
+    </form>
+
+    <script>
+        // inicialização de array com 30 temperaturas
+        var temperatura = [14, 19.1, 12, 20, 19, 24, 17, 10, 18, 17, 20.4, 25.2, 27, 29, 28, 31, 25, 24.3, 21, 17, 22.7, 16, 23.2, 19, 30.4, 29, 30, 27.3, 18.4, 21]
+
+        // calculando a temperatura média
+        var tempMedia = temperatura.reduce(function(media, value, index, array) {
+            let peso = 1/temperatura.length
+            media = media + value * peso
+            return media
+        }, 0)
+
+        // capturando o clique do botão "testarDia"
+        var btTestarDia = document.getElementById("idBtTestarDia")
+
+        btTestarDia.onclick = function() {
+            let dia = Number(document.getElementById("idDia").value)
+
+            // comparando a temperatura do dia com a temperatura média
+            if (temperatura[dia] > tempMedia) {
+                output.value = `A temperatura (${temperatura[dia]} graus) do dia ${dia} está acima da média ${tempMedia} graus`
+            } else if (temperatura[dia] < tempMedia) {
+                output.value = `A temperatura (${temperatura[dia]} graus) do dia ${dia} está abaixo da média ${tempMedia} graus`
+            } else {
+                output.value = `A temperatura (${temperatura[dia]} graus) do dia ${dia} está na média ${tempMedia} graus`
+            }
+        }
+        
+        // informando a mensagem da saída
+        var output = document.getElementById("idSaida")
+
+    </script>
+</body>
+</html>

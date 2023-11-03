@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista7_Exercício02</title>
+    <style>
+        .linha {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .alerta {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 2. Crie um programa que leia o nome e a idade de 9 pessoas e guarde esses valores em dois vetores, em posições 
+            relacionadas. No final, mostre uma listagem contendo apenas os dados das pessoas menores de idade.
+    -->
+
+    <h3>Lista 7 / Exercício 02</h3>
+
+    <form action="">
+        <label for="idNome" class="linha">Nome</label>
+        <input type="text" name="nmNome" id="idNome" class="linha">
+        <label for="idIdade" class="linha">Idade</label>
+        <input type="number" name="nmIdade" id="idIdade" class="linha">
+        <input type="button" value="Incluir" id="idBtIncluir">
+        <input type="button" value="Mostrar" id="idBtMostrar">
+
+        <output id="idSaida" class="linha"></output>
+    </form>
+
+    <script>
+        var nomes = []
+        var idades = []
+        var nomesMenorDeIdade = []
+        var idadesMenorDeIdade = []
+        var btIncluir = document.getElementById("idBtIncluir")
+        var btMostrar = document.getElementById("idBtMostrar")
+        var saida = document.getElementById("idSaida")
+    
+        // incluindo o registro
+        btIncluir.onclick = function () {
+            
+            capturarDadosDigitados()
+                document.getElementById("idNome").value = ""
+                document.getElementById("idIdade").value = ""
+
+                console.log(nomes);
+                console.log(idades);
+        }
+
+        // identificar os menores de idade
+        btMostrar.onclick = function () {
+            // buscar os índices das idades menores que 18 anos
+            idades.forEach((idade, index) => {
+                if (idade < 18) {
+                    idadesMenorDeIdade.push(index)
+                }
+            });
+
+            // acessar o array de nomes dos índices dos menores de idade e salvar em outro array
+            idadesMenorDeIdade.forEach((indMenorDeIdade) => {
+                nomesMenorDeIdade.push(nomes[indMenorDeIdade])
+            });
+
+            // mostrar o que foi digitado
+            saida.value = "\n Menores de idade: " + nomesMenorDeIdade.toString()
+        }
+
+
+        function capturarDadosDigitados() {
+            let nome = document.getElementById("idNome").value
+            let isNomeValido = verificarNome(nome)
+            if (isNomeValido) {
+                saida.value = ""
+                saida.classList.remove("alerta")
+            }
+
+            let idade = document.getElementById("idIdade").value
+            let isIdadeValida = verificarIdade(idade)
+            if (isIdadeValida) {
+                nomes.push(nome)
+                idades.push(idade)
+                saida.value = ""
+                saida.classList.remove("alerta")
+            }
+        }
+
+        function verificarNome(nome) {
+            // validando o preenchimento do campo Nome; se ok, retorna true
+            if (nome == "" || nome == " " ) {
+                saida.value = "O preenchimento do campo Nome é obrigatório!"
+                saida.classList.add("alerta")
+                document.getElementById("idNome").focus()
+                return false
+            }
+            return true
+        }
+
+        function verificarIdade(idade) {
+            // validando o preenchimento do campo Idade; se ok, retorna true
+            if (idade < 0 || idade > 120) {
+                saida.value = "A idade deve estar entre 0 e 120 anos!"
+                saida.classList.add("alerta")
+                document.getElementById("idIdade").focus()
+                return false
+            }
+            return true
+        }
+
+
+    </script>
+</body>
+</html>
