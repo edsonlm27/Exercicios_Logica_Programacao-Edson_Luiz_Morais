@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista8_Exercício03</title>
+    <style>
+        .alerta {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 3. Refatore o exercício L7E3 usando os métodos filter(), map() e reduce(), 
+        no lugar das estruturas de repetição tradicionais, para processar os vetores 
+        nomes[], sexos[] e salários[] a fim de mostrar uma listagem contendo apenas 
+        os dados das funcionárias mulheres que ganham mais de R$5 mil.
+    -->
+
+    <h3>Lista 8 / Exercício 03</h3>
+
+        <fieldset>
+            <legend>Cadastro de Funcionários</legend>
+            <div>
+                <input type="text" name="nmNome" id="idNome" placeholder="Nome">
+            </div>
+            <div>
+                <input type="number" name="nmSalario" id="idSalario" placeholder="Salário">
+            </div>
+            <div>
+                <input type="radio" name="nmSexo" id="idFem" value="F" checked>
+                <label for="idFem">Feminino</label>
+                <input type="radio" name="nmSexo" id="idMasc" value="M">
+                <label for="idMasc">Masculino</label>
+            </div>
+            <div>
+                <input type="button" value="Incluir" id="idBtIncluir">
+                <input type="button" value="Mostrar" id="idBtMostrar">
+            </div>
+            <div>
+                <output id="idSaida"></output>
+            </div>
+        </fieldset>
+
+
+    <script>
+        const salarioMinimo = 1212.00
+        var nomes = []
+        var sexos = []
+        var salarios = []
+        var btIncluir = document.getElementById("idBtIncluir")
+        var btMostrar = document.getElementById("idBtMostrar")
+        var saida = document.getElementById("idSaida")
+
+
+        function limparTela() {
+            document.getElementById("idNome").value = ""
+            document.getElementById("idSalario").value = ""
+            document.getElementById("idFem").checked = true
+        }
+
+    
+        // incluindo o registro
+        btIncluir.onclick = function () {
+            let isDadosValidos = validarTela()
+            if (isDadosValidos) {
+                incluir()
+                limparTela()
+            }
+        }
+
+
+        // apresentando os registros
+        btMostrar.onclick = function () {
+            /*  esta função faz uso dos métodos map() e filter()
+                * No primeiro map() temos um retorno com os índices para funcionárias com salário acima de 5 mil 
+                    e undefined para salários de funcionários igual ou menor quee 5 mil e de todos funcionários.
+                * O filter retira todos aqueles registros com undefined.
+                * No último map() temos um array com os índices do primeiro map(), que é transformado em um 
+                    JS Object com todas as informações da(s) funcionária(s).
+            */  
+           
+            let salariosFemMaiores = nomes.map((nome, index)=>{
+                if (sexos[index] == "F" && salarios[index] > 5000) {
+                    return index
+                }
+            }).filter(value => value != undefined).map(value => {
+                return  {
+                            nome: nomes[value],
+                            sexo: sexos[value],
+                            salario: salarios[value]
+                        }
+            })
+
+            // mostrar na saída os dados das mulheres com salários acima de 5 mil
+            saida.value = "Mulheres com salário acima de R$ 5000,00: "
+            salariosFemMaiores.forEach(funcionario => {
+                    saida.value = saida.value + "( " + funcionario.nome + " ; " + funcionario.sexo + " ; " + funcionario.salario + " )"
+            });
+        }
+
+        
+        function validarTela() {
+            let nome = document.getElementById("idNome").value
+            let salario = document.getElementById("idSalario").value
+
+            // validando o preenchimento do campo Nome
+            if (nome == "" || nome == " " ) {
+                saida.value = "O preenchimento do campo Nome é obrigatório!"
+                saida.classList.add("alerta")
+                document.getElementById("idNome").focus()
+                return false
+            }
+
+            // validando o preenchimento do campo Salário
+            if (salario == "" || salario == " " ) {
+                saida.value = "O preenchimento do campo Salário é obrigatório!"
+                saida.classList.add("alerta")
+                document.getElementById("idSalario").focus()
+                return false
+            }
+
+            // validando se o Salário é maior que o mínimo
+            if (salario < salarioMinimo ) {
+                saida.value = "Salário não pode ser menor do que o salário mínimo!"
+                saida.classList.add("alerta")
+                document.getElementById("idSalario").focus()
+                return false
+            }
+
+            saida.classList.remove("alerta")
+            return true
+        }       
+        
+                
+        function incluir() {
+            nomes.push(document.getElementById("idNome").value)
+            salarios.push(document.getElementById("idSalario").value)
+            sexos.push(document.querySelector('input[name="nmSexo"]:checked').value)
+            saida.value = "Inclusão feita com sucesso!"
+            console.log(nomes);
+            console.log(salarios);
+            console.log(sexos);
+        }
+
+    </script>
+</body>
+</html>

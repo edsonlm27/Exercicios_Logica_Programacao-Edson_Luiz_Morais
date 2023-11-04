@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista8_Exercício04</title>
+    <style>
+        .alerta {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 4. Refatore o exercício L7E3, armazenando os dados dos funcionarios em um array de JSObjects, 
+        seguindo a estrutura mostrada no exemplo abaixo. 
+
+    ~~~javaScript
+        var funcionarios = [] 
+        var funcionario = {
+            nome: "Joao", 
+            sexo: "M", 
+            salario: 3500
+        }
+        funcionarios.push(funcionario)
+    ~~~
+
+        Use os métodos filter(), map() e reduce(), no lugar das estruturas de repetição tradicionais, 
+        para processar o vetor funcionarios[] a fim de mostrar uma listagem contendo apenas os dados 
+        das funcionárias mulheres que ganham mais de R$5 mil.
+    -->
+
+    <h3>Lista 8 / Exercício 04</h3>
+        <form action="" id="idForm">
+            <fieldset>
+                <legend>Cadastro de Funcionários</legend>
+                <div>
+                    <input type="text" name="nmNome" id="idNome" placeholder="Nome">
+                </div>
+                <div>
+                    <input type="number" name="nmSalario" id="idSalario" placeholder="Salário">
+                </div>
+                <div>
+                    <input type="radio" name="nmSexo" id="idFem" value="F" checked>
+                    <label for="idFem">Feminino</label>
+                    <input type="radio" name="nmSexo" id="idMasc" value="M">
+                    <label for="idMasc">Masculino</label>
+                </div>
+                <div>
+                    <input type="button" value="Incluir" id="idBtIncluir">
+                    <input type="button" value="Mostrar" id="idBtMostrar">
+                </div>
+                <div>
+                    <output id="idSaida"></output>
+                </div>
+            </fieldset>
+        </form>
+
+
+
+    <script>
+        const salarioMinimo = 1212.00
+        var funcionarios = []
+        var btIncluir = document.getElementById("idBtIncluir")
+        var btMostrar = document.getElementById("idBtMostrar")
+        var saida = document.getElementById("idSaida")
+
+
+        function limparTela() {
+            document.getElementById("idNome").value = ""
+            document.getElementById("idSalario").value = ""
+            document.getElementById("idFem").checked = true
+        }
+
+    
+        // incluindo o registro
+        btIncluir.onclick = function () {
+            let isDadosValidos = validarTela()
+            if (isDadosValidos) {
+                incluir()
+                limparTela()
+            }
+        }
+
+
+        // apresentando os registros
+        btMostrar.onclick = function () {
+            // filtrar salários maiores do que 5000
+            let salariosFemMaiores = funcionarios.filter(funcionario => {
+                return (funcionario.sexo == "F" && funcionario.salario > 5000)
+            })
+
+            // verificar se o sálario é de feminino, para incluir na saída
+            saida.value = "Mulheres com salário acima de R$ 5000,00: "
+            salariosFemMaiores.forEach(funcionario => {
+                saida.innerText = saida.value + "( " + funcionario.nome + " ; " + funcionario.sexo + " ; " + funcionario.salario + " )"
+            });
+        }
+
+         
+        function validarTela() {
+            let nome = document.getElementById("idNome").value
+            let salario = document.getElementById("idSalario").value
+
+            // validando o preenchimento do campo Nome
+            if (nome == "" || nome == " " ) {
+                saida.value = "O preenchimento do campo Nome é obrigatório!"
+                saida.classList.add("alerta")
+                document.getElementById("idNome").focus()
+                return false
+            }
+
+            // validando o preenchimento do campo Salário
+            if (salario == "" || salario == " " ) {
+                saida.value = "O preenchimento do campo Salário é obrigatório!"
+                saida.classList.add("alerta")
+                document.getElementById("idSalario").focus()
+                return false
+            }
+
+            // validando se o Salário é maior que o mínimo
+            if (salario < salarioMinimo ) {
+                saida.value = "Salário não pode ser menor do que o salário mínimo!"
+                saida.classList.add("alerta")
+                document.getElementById("idSalario").focus()
+                return false
+            }
+
+            saida.classList.remove("alerta")
+            return true
+        }
+        
+                
+        function incluir() {
+            let formulario = document.getElementById("idForm")
+            let funcionario = {
+                nome: formulario.nmNome.value,
+                sexo: formulario.nmSexo.value,
+                salario: Number(formulario.nmSalario.value)
+            }
+            funcionarios.push(funcionario)
+            saida.value = "Inclusão feita com sucesso!"
+            console.log(funcionarios);
+        }
+ 
+    </script>
+</body>
+</html>

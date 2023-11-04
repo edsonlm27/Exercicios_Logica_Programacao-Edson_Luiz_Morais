@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista8_Exercício05</title>
+    <style>
+        .linha {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 5. Refatore o exercício L7E5, corrigindo o método de ordenação dos botões 
+        "idOrdemCresSort" e "idOrdemDecresSort" de forma que a sequencia numérica 
+        do vetor num[] seja ordenada corretamente em ordem crescente e decrescente 
+        respectivamente.
+    -->
+
+    <h3>Lista 8 / Exercício 05</h3>
+
+    <form action="">
+        <label for="idNumero" class="linha">Digite 10 números</label>
+        <input type="number" name="nmNumero" id="idNumero" class="linha">
+
+        <button type="button" id="idIncluir">Incluir</button>
+        <button type="button" id="idOrdemCresc">Ordem Crescente Método Bolha</button>
+        <button type="button" id="idOrdemDecresc">Ordem Decrescente Método Bolha</button>
+        <button type="button" id="idOrdemCrescSort">Ordem Crescente Método Sort</button>
+        <button type="button" id="idOrdemDecrescSort">Ordem Decrescente Método Sort</button>
+        
+        <output id="idSaida" class="linha"></output>
+    </form>
+
+    <script>
+        // declaração de variáveis e inicialização
+        var numero = []
+        var btIncluir = document.getElementById("idIncluir")
+        var btOrdemCresc = document.getElementById("idOrdemCresc")
+        var btOrdemDecresc = document.getElementById("idOrdemDecresc")
+        var btOrdemCrescSort = document.getElementById("idOrdemCrescSort")
+        var btOrdemDecrescSort = document.getElementById("idOrdemDecrescSort")
+
+        var saida = document.getElementById("idSaida")
+
+        // capturar número digitado e incluir no array
+        btIncluir.onclick = function () {
+            numero.push(Number(document.getElementById("idNumero").value))
+            console.table(numero)
+        }
+
+        // fazer a ordenação crescente através do Método da Bolha
+        btOrdemCresc.onclick = function () {
+            var trocou = true
+            while (trocou) {
+                trocou = false
+                for (let i = 0; i < (numero.length - 1); i++) {
+                    if (numero[i] > numero[i+1]) {
+                        let aux = numero[i]
+                        numero[i] = numero[i+1]
+                        numero[i+1] = aux
+                        trocou = true
+                    }
+                }
+            }
+            saida.value = numero.toString()
+        }
+
+        // fazer a ordenação decrescente através do Método da Bolha
+        btOrdemDecresc.onclick = function () {
+            var trocou = true
+            while (trocou) {
+                trocou = false
+                for (let i = 0; i < (numero.length - 1); i++) {
+                    if (numero[i] < numero[i+1]) {
+                        let aux = numero[i]
+                        numero[i] = numero[i+1]
+                        numero[i+1] = aux
+                        trocou = true
+                    }
+                }
+            }
+            saida.value = numero.toString()
+        }
+
+        // fazer a ordenação crescente através do Método sort()
+        btOrdemCrescSort.onclick = function() {
+            saida.value = numero.sort(function (a,b) {
+                if (a > b) {
+                    return 1
+                }
+                if (a < b) {
+                    return -1
+                }
+                return 0
+            }).toString()
+        }
+
+        // fazer a ordenação decrescente através do Método sort()
+        btOrdemDecrescSort.onclick = function() {
+            saida.value = numero.sort(function (a,b) {
+                if (a < b) {
+                    return 1
+                }
+                if (a > b) {
+                    return -1
+                }
+                return 0
+            }).toString()
+        }
+
+    </script>
+</body>
+</html>
